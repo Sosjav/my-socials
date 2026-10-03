@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- =====================================================================
+     CONFIG — EDIT HERE
+     1) Replace the four *_URL placeholders with your real profile URLs.
+     2) Rename the page by changing PAGE_TITLE (also update <title> below
+        and "name"/"short_name" in manifest.webmanifest if you like).
+     ===================================================================== -->
+<script>
+  const PAGE_TITLE = "My Socials";
+  const SOCIAL_LINKS = {
+    INSTAGRAM_URL: "https://www.instagram.com/35.skyline.driver",
+    FACEBOOK_URL:  "https://www.facebook.com/share/1F22WroXqP/",
+    TIKTOK_URL:    "https://www.tiktok.com/@35.skyline.driver",
+    YOUTUBE_URL:   "https://www.youtube.com/@35skylinedriver"
+  };
+</script>
+<!-- ===================== END CONFIG ===================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Socials</title>
+<meta name="theme-color" content="#0b0d12">
+<meta name="color-scheme" content="dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="My Socials">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+  :root { --bg:#0b0d12; --card:#161a22; --text:#f2f4f8; --muted:#8b93a7; --r:22px; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { background:var(--bg); color:var(--text); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height:100vh; -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color:transparent;
+    padding: calc(env(safe-area-inset-top) + 28px) calc(env(safe-area-inset-right) + 18px)
+             calc(env(safe-area-inset-bottom) + 28px) calc(env(safe-area-inset-left) + 18px);
+  }
+  main { max-width:760px; margin:0 auto; }
+  header { margin-bottom:22px; }
+  h1 { font-size:30px; font-weight:800; letter-spacing:-.02em; }
+  .sub { color:var(--muted); font-size:14px; margin-top:4px; }
+  h2 { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin:30px 2px 12px; }
+  a { color:inherit; text-decoration:none; }
+  .grid { display:grid; gap:14px; grid-template-columns:repeat(2,1fr); }
+  .tile {
+    position:relative; overflow:hidden; border-radius:var(--r); aspect-ratio:1/1;
+    display:flex; flex-direction:column; justify-content:space-between; padding:18px;
+    color:#fff; box-shadow:0 8px 24px rgba(0,0,0,.35); transition:transform .12s ease, filter .12s ease;
+  }
+  .tile:active { transform:scale(.97); filter:brightness(.92); }
+  .tile:focus-visible, .mini:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+  @media (hover:hover) { .tile:hover, .mini:hover { filter:brightness(1.08); } }
+  .tile svg { width:52px; height:52px; }
+  .tile .name { font-size:20px; font-weight:750; letter-spacing:-.01em; }
+  .tile .hint { font-size:12px; opacity:.8; margin-top:2px; }
+  .ig { background:radial-gradient(circle at 25% 110%, #fdf497 0%, #fd5949 35%, #d6249f 60%, #285AEB 100%); }
+  .fb { background:linear-gradient(160deg,#1877F2,#0b5bd3); }
+  .tt { background:#010101; }
+  .tt::before, .tt::after { content:""; position:absolute; width:140px; height:140px; border-radius:50%; filter:blur(38px); opacity:.55; }
+  .tt::before { background:#25F4EE; top:-40px; right:-30px; }
+  .tt::after  { background:#FE2C55; bottom:-50px; left:-40px; }
+  .tt > * { position:relative; z-index:1; }
+  .yt { background:linear-gradient(160deg,#ff1a1a,#cc0000); }
+  .list { display:grid; gap:10px; grid-template-columns:repeat(2,1fr); }
+  .mini {
+    display:flex; align-items:center; gap:12px; min-height:62px; padding:12px 14px;
+    background:var(--card); border:1px solid #232937; border-radius:16px; transition:transform .12s ease, filter .12s ease;
+  }
+  .mini:active { transform:scale(.97); }
+  .dot { flex:0 0 36px; height:36px; border-radius:11px; display:grid; place-items:center; }
+  .dot svg { width:20px; height:20px; }
+  .mini b { font-size:14.5px; font-weight:650; display:block; line-height:1.2; }
+  .mini small { color:var(--muted); font-size:12px; }
+  footer { color:#566076; font-size:12px; text-align:center; margin-top:34px; }
+  @media (min-width:700px) {
+    body { padding-top:56px; }
+    h1 { font-size:38px; }
+    .grid { grid-template-columns:repeat(4,1fr); }
+    .list { grid-template-columns:repeat(4,1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="page-title">My Socials</h1>
+    <p class="sub">Tap to open</p>
+  </header>
+
+  <section aria-label="Accounts">
+    <div class="grid">
+      <a class="tile ig" data-link="INSTAGRAM_URL" href="https://www.instagram.com/35.skyline.driver" target="_blank" rel="noopener">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="3.5" aria-hidden="true"><rect x="6" y="6" width="36" height="36" rx="11"/><circle cx="24" cy="24" r="8.5"/><circle cx="34.5" cy="13.5" r="2.2" fill="#fff" stroke="none"/></svg>
+        <div><div class="name">Instagram</div><div class="hint">Profile</div></div>
+      </a>
+      <a class="tile fb" data-link="FACEBOOK_URL" href="https://www.facebook.com/share/1F22WroXqP/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#fff"/><path d="M26.5 44V29h5l.8-6h-5.8v-3.6c0-1.7.5-2.9 3-2.9h3.1v-5.3c-.6-.1-2.4-.2-4.5-.2-4.5 0-7.5 2.7-7.5 7.7V23h-5v6h5v15z" fill="#1877F2"/></svg>
+        <div><div class="name">Facebook</div><div class="hint">Profile</div></div>
+      </a>
+      <a class="tile tt" data-link="TIKTOK_URL" href="https://www.tiktok.com/@35.skyline.driver" target="_blank" rel="noopener">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M28 6v24.5a7.5 7.5 0 1 1-7.5-7.5" fill="none" stroke="#25F4EE" stroke-width="5" stroke-linecap="round" transform="translate(-1.5 -1.5)"/>
+          <path d="M28 6c.8 5.5 4.5 9 10 9.5" fill="none" stroke="#25F4EE" stroke-width="5" stroke-linecap="round" transform="translate(-1.5 -1.5)"/>
+          <path d="M28 6v24.5a7.5 7.5 0 1 1-7.5-7.5" fill="none" stroke="#FE2C55" stroke-width="5" stroke-linecap="round" transform="translate(1.5 1.5)"/>
+          <path d="M28 6c.8 5.5 4.5 9 10 9.5" fill="none" stroke="#FE2C55" stroke-width="5" stroke-linecap="round" transform="translate(1.5 1.5)"/>
+          <path d="M28 6v24.5a7.5 7.5 0 1 1-7.5-7.5" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+          <path d="M28 6c.8 5.5 4.5 9 10 9.5" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div><div class="name">TikTok</div><div class="hint">Profile</div></div>
+      </a>
+      <a class="tile yt" data-link="YOUTUBE_URL" href="https://www.youtube.com/@35skylinedriver" target="_blank" rel="noopener">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="10" width="42" height="28" rx="9" fill="#fff"/><path d="M20 17.5v13l11.5-6.5z" fill="#e00"/></svg>
+        <div><div class="name">YouTube</div><div class="hint">Channel</div></div>
+      </a>
+    </div>
+  </section>
+
+  <h2>Studio</h2>
+  <section class="list" aria-label="Studio">
+    <a class="mini" href="https://business.facebook.com/latest/home" target="_blank" rel="noopener">
+      <span class="dot" style="background:#0866FF"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M3 16c0-5 2-9 4.5-9S12 12 12 12s2 5 4.5 5S21 15 21 12s-1.5-5-3.5-5S13 12 12 12"/></svg></span>
+      <span><b>Meta Business Suite</b><small>FB + IG</small></span>
+    </a>
+    <a class="mini" href="https://www.tiktok.com/tiktokstudio" target="_blank" rel="noopener">
+      <span class="dot" style="background:#010101;border:1px solid #333"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M14 3v12a4 4 0 1 1-4-4M14 3c.4 2.8 2.3 4.6 5 4.8"/></svg></span>
+      <span><b>TikTok Studio</b><small>Analytics</small></span>
+    </a>
+    <a class="mini" href="https://studio.youtube.com" target="_blank" rel="noopener">
+      <span class="dot" style="background:#FF0000"><svg viewBox="0 0 24 24"><path d="M9 7v10l8-5z" fill="#fff"/></svg></span>
+      <span><b>YouTube Studio</b><small>Channel</small></span>
+    </a>
+    <a class="mini" href="https://app.metricool.com" target="_blank" rel="noopener">
+      <span class="dot" style="background:#7B61FF"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M5 19V13M12 19V6M19 19v-9"/></svg></span>
+      <span><b>Metricool</b><small>Scheduling</small></span>
+    </a>
+  </section>
+
+  <h2>Business</h2>
+  <section class="list" aria-label="Business">
+    <a class="mini" href="https://wondertrail-dcg.madethis.app/" target="_blank" rel="noopener">
+      <span class="dot" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9M4 9h16v11H4zM9 20v-6h6v6"/></svg></span>
+      <span><b>Wondertrail</b><small>Store</small></span>
+    </a>
+    <a class="mini" href="https://dashboard.stripe.com" target="_blank" rel="noopener">
+      <span class="dot" style="background:#635BFF"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M16.5 8.5C15.8 7.4 14.3 7 12.8 7 10.7 7 9 8 9 9.6c0 3.6 7 2 7 5.3 0 1.4-1.6 2.3-3.8 2.3-1.7 0-3.3-.6-4.2-1.6"/></svg></span>
+      <span><b>Stripe</b><small>Dashboard</small></span>
+    </a>
+  </section>
+
+  <footer>Add to Home Screen for one-tap access</footer>
+</main>
+<script>
+  // Applies CONFIG above. Links also work without JS (same placeholders in href).
+  document.querySelectorAll("[data-link]").forEach(function (a) {
+    var url = SOCIAL_LINKS[a.dataset.link];
+    if (url) a.href = url;
+  });
+  document.title = PAGE_TITLE;
+  document.getElementById("page-title").textContent = PAGE_TITLE;
+</script>
+</body>
+</html>
